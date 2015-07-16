@@ -11,16 +11,18 @@
 <div class="navbar navbar-inverse">
 	<a class="navbar-brand" href="#">ART GALLERY</a>
 </div>
-<div class="panel panel-default row">
+<div class="panel panel-default row" ng-controller="photoListCtrl">
 	<div class="col-xs-3">
 		<a ng-click="selectCategory()" class="btn btn-block btn-default btn-lg">Home</a>
 		<a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"
-		 ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg">
+		 ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg"
+		 ng-class="getCategoryClass(item)">
 		 {{item}}
 		 </a>
 	</div>
 	<div class="col-xs-8">
-		<div class="well" ng-repeat="item in data.products">
+		<div class="well" ng-repeat="item in data.products | filter:categoryFilter">
+
 			<h3>
 				<strong>{{item.name}}</strong>
 				<span class="pull-right label label-primary">
@@ -34,5 +36,6 @@
 <script type="text/javascript" src="gallerymodule.js"></script>
 <script type="text/javascript" src="controllers/artGallery.js"></script>
 <script type="text/javascript" src="filters/galleryFilters.js"></script>
+<script type="text/javascript" src="controllers/photoListControllers.js"></script>
 </body>
 </html>
