@@ -1,2 +1,1 @@
-angular.module("artGallery",["galleryFilters"]);
-	
+angular.module("artGallery", ["galleryFilters", "cart"]);

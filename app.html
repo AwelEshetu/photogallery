@@ -5,44 +5,24 @@
 	<script type="text/javascript" src="angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="bootstrap.css" />
 	<link rel="stylesheet" type="text/css" href="bootstrap-theme.css" />
-		
+
 </head>
 <body ng-controller="artGalleryCtrl">
 <div class="navbar navbar-inverse">
 	<a class="navbar-brand" href="#">ART GALLERY</a>
+	<order-summary />
 </div>
-<div class="panel panel-default row" ng-controller="photoListCtrl">
-	<div class="col-xs-3">
-		<a ng-click="selectCategory()" class="btn btn-block btn-default btn-lg">Home</a>
-		<a ng-repeat="item in data.products | orderBy:'category' | unique:'category'"
-		 ng-click="selectCategory(item)" class="btn btn-block btn-default btn-lg"
-		 ng-class="getCategoryClass(item)">
-		 {{item}}
-		 </a>
-	</div>
-	<div class="col-xs-8">
-		<div class="well" ng-repeat="item in data.products | filter:categoryFilter | range:selectedPage:pageSize">
-
-			<h3>
-				<strong>{{item.name}}</strong>
-				<span class="pull-right label label-primary">
-					{{item.price | currency}}
-				</span>
-			</h3>
-			<span class="lead">{{item.description}}</span>
-		</div> 
-		<div class="pull-right btn-group">
-		<a ng-repeat="page in data.products | filter:categoryFilter | pageCount:pageSize"
-		ng-click="selectPage($index +1)" class="btn btn-default" ng-class="getPageClass($index +1)">
-			{{$index +1}}
-		</a>
-			
-		</div>
-	</div>
+<div class="alert alert-danger" ng-show="data.error">
+Error ({{data.error.status}}). Product not loaded yet.
+<a href="/app.html" class="alert-link">Click here to reload again</a>
 </div>
+<ng include src="'views/photoList.html'"></ng-include>
 <script type="text/javascript" src="gallerymodule.js"></script>
 <script type="text/javascript" src="controllers/artGallery.js"></script>
 <script type="text/javascript" src="filters/galleryFilters.js"></script>
 <script type="text/javascript" src="controllers/photoListControllers.js"></script>
+<scrip type="text/javascript" src="components/cart/cart.js"></scrip>
+
+</script>
 </body>
 </html>
