@@ -1,12 +1,14 @@
+//defining properties which controlles the gallary
 angular.module("artGallery")
 	.constant("photoListActiveClass", "btn-primary")
 	.constant("photoListPageCount", 4)
 	.controller("photoListCtrl", function($scope, $filter, photoListActiveClass,
 		photoListPageCount, cart) {
-
+		//initializations
 		var selectedCategory = null;
 		$scope.selectedPage = 1;
 		$scope.pageSize = photoListPageCount;
+		//selecting category property
 		$scope.selectCategory = function(newCategory) {
 			selectedCategory = newCategory;
 			$scope.selectedPage = 1;
@@ -28,6 +30,7 @@ angular.module("artGallery")
 		$scope.getPageClass = function(page) {
 			return $scope.selectedPage == page ? photoListActiveClass : "";
 		};
+		//adding product properties to cart
 		$scope.addProductToCart = function(product) {
 			cart.addOrder(product.id, product.name, product.price);
 		};

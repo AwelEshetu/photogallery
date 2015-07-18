@@ -1,3 +1,4 @@
+//defining artgallery controller with Ajax request
 angular.module("artGallery")
   .constant("dataUrl", "http://localhost:2403/products")
   .controller("artGalleryCtrl", function($scope, $http, dataUrl) {

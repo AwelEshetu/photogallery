@@ -1,3 +1,4 @@
+//defing server and port to listen to
 var connect = require('connect'),
   serveStatic = require('serve-static');
 var app = connect();
