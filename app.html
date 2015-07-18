@@ -16,13 +16,13 @@
 Error ({{data.error.status}}). Product not loaded yet.
 <a href="/app.html" class="alert-link">Click here to reload again</a>
 </div>
+<ng-view />
 <ng-include src="'views/photoList.html'"></ng-include>
 <script type="text/javascript" src="gallerymodule.js"></script>
 <script type="text/javascript" src="controllers/artGallery.js"></script>
 <script type="text/javascript" src="filters/galleryFilters.js"></script>
 <script type="text/javascript" src="controllers/photoListControllers.js"></script>
 <script type="text/javascript" src="components/cart/cart.js"></script>
-
-</script>
+<script type="text/javascript" src="ngmodules/angular-route.js"></script>
 </body>
 </html>
