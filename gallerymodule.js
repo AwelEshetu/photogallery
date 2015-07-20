@@ -1,4 +1,4 @@
-//defining 'artGallery module' and its dependencies also configuring routes
+//defining 'artGallery module' and its dependencies, also configuring routes
 angular.module("artGallery", ["galleryFilters", "cart", "ngRoute"])
   .config(function($routeProvider) {
     $routeProvider.when("/complete", {
